@@ -1,6 +1,6 @@
 
 ```markdown
-# Produto API
+# Store API
 
 API para gerenciar produtos. Esta aplicação é construída com Spring Boot e PostgreSQL e usa Docker e Docker Compose para o setup.
 
@@ -13,8 +13,8 @@ API para gerenciar produtos. Esta aplicação é construída com Spring Boot e P
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/exemplo/produto-api.git
-   cd produto-api
+   git clone https://github.com/exemplo/store-api.git
+   cd store-api
    ```
 
 2. Construa e inicie os containers com Docker Compose:
