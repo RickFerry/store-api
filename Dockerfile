@@ -8,6 +8,6 @@ RUN mvn clean package -DskipTests
 # Usando uma imagem base do JDK para rodar a aplicação
 FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/produto-api-0.0.1-SNAPSHOT.jar produto-api.jar
+COPY --from=build /app/target/store-api-0.0.1-SNAPSHOT.jar store-api.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "produto-api.jar"]
+ENTRYPOINT ["java", "-jar", "store-api.jar"]
