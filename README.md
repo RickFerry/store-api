@@ -1,49 +1,61 @@
 
 ```markdown
-# Store API
+## Executando a Aplicação
 
-API para gerenciar produtos. Esta aplicação é construída com Spring Boot e PostgreSQL e usa Docker e Docker Compose para o setup.
+Para rodar a aplicação, certifique-se de que você tenha Docker e Docker Compose instalados.
 
-## Pré-requisitos
+1. **Clone o repositório**:
 
-- Docker
-- Docker Compose
-
-## Configuração
-
-1. Clone o repositório:
    ```bash
-   git clone https://github.com/exemplo/store-api.git
-   cd store-api
+   git clone https://github.com/seu-usuario/produto-api.git
+   cd produto-api
    ```
 
-2. Construa e inicie os containers com Docker Compose:
+2. **Construa e inicie os containers**:
+
    ```bash
    docker-compose up --build
    ```
 
-3. A API estará disponível em `http://localhost:8080`.
+3. **Acesse a aplicação**:
 
-## Endpoints
+   A aplicação estará disponível em `http://localhost:8080/api/produtos`. Você precisará se autenticar usando o usuário e senha configurados (`admin` e `password`).
 
-- `GET /api/produtos` - Listar todos os produtos.
-- `GET /api/produtos/{id}` - Obter produto por ID.
-- `POST /api/produtos` - Criar um novo produto.
-- `PUT /api/produtos/{id}` - Atualizar um produto existente.
-- `DELETE /api/produtos/{id}` - Deletar um produto.
+## Testando Endpoints
 
-## Testando a API
+Use `curl`, Postman, ou qualquer cliente HTTP para testar os endpoints da API.
 
-Você pode usar ferramentas como `curl` ou `Postman` para testar os endpoints.
+- **GET** todos os produtos:
 
-Exemplo usando `curl`:
+  ```bash
+  curl -u admin:password http://localhost:8080/api/produtos
+  ```
 
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"
+- **GET** produto por ID:
 
-"nome": "Produto A", "descricao": "Descrição do Produto A", "valor": 100.00}' http://localhost:8080/api/produtos
+  ```bash
+  curl -u admin:password http://localhost:8080/api/produtos/{id}
+  ```
+
+- **POST** criar novo produto:
+
+  ```bash
+  curl -u admin:password -X POST -H "Content-Type: application/json" -d '{"nome": "Produto 1", "descricao": "Descrição", "valor": 100.0}' http://localhost:8080/api/produtos
+  ```
+
+- **PUT** atualizar produto:
+
+  ```bash
+  curl -u admin:password -X PUT -H "Content-Type: application/json" -d '{"nome": "Produto Atualizado", "descricao": "Nova Descrição", "valor": 150.0}' http://localhost:8080/api/produtos/{id}
+  ```
+
+- **DELETE** produto:
+
+  ```bash
+  curl -u admin:password -X DELETE http://localhost:8080/api/produtos/{id}
+  ```
+
+## Logging
+
+Todos os logs da aplicação serão exibidos no console. Para modificar os níveis de logging, ajuste o arquivo `logback-spring.xml`.
 ```
-
-### 7. Executando e Testando
-
-Para executar e testar a API, siga as instruções no README.md. Você pode interagir com a API usando ferramentas como Postman, cURL, ou qualquer cliente HTTP de sua preferência para realizar operações CRUD na entidade "Produto".
