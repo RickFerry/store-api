@@ -7,7 +7,7 @@ Para rodar a aplicação, certifique-se de que você tenha Docker e Docker Compo
 1. **Clone o repositório**:
 
    ```bash
-   git clone https://github.com/seu-usuario/produto-api.git
+   git clone https://github.com/seu-usuario/store-api.git
    cd produto-api
    ```
 
